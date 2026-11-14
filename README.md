@@ -28,14 +28,6 @@ Sempre que você alterar o Editor-Offline, os comandos `npm start`, `npm run pac
 
 Os ícones vêm de `Icones/` na raiz do repositório: `assets/icon.ico` e `assets/titlebar-icon.png` são gerados a partir de `Icones/morsejs.png` e aparecem no instalador, no atalho que abre o aplicativo e na barra de título; `assets/taskbar-icon.png` vem de `Icones/MorseJS_0.png` e aparece só na barra de tarefas do Windows enquanto o app está aberto. A barra de título tem 36 px, a mesma altura da do Codex: a barra nativa fica escondida, o Windows desenha só os botões de minimizar, maximizar e fechar, e [electron-titlebar.cjs](electron-titlebar.cjs) desenha o ícone e o nome na mesma faixa, acompanhando o tema claro ou escuro. Como o instalador não é assinado digitalmente, o Windows pode mostrar o aviso do SmartScreen na primeira execução ("Mais informações" → "Executar assim mesmo").
 
-## Corretor ortográfico com e sem internet
-
-No Windows, o corretor do Electron usa dicionários Hunspell (arquivos `.bdic`) e mostra as sugestões no menu "Ortografia" do próprio editor, ao clicar com o botão direito numa palavra sublinhada.
-
-- **Com internet**, o corretor funciona sem nenhum ajuste. Na primeira vez, o Electron baixa o dicionário pt-BR e o guarda para as próximas.
-- **Sem internet**, ele só funciona se o dicionário já estiver no computador. Para isso, coloque o arquivo pt-BR `.bdic` em `resources/dictionaries/` antes de rodar `npm run dist`. O instalador leva o arquivo junto, e o app o entrega ao Electron por um servidor interno (`127.0.0.1`), sem acessar a internet. O passo a passo está em [resources/dictionaries/README.md](resources/dictionaries/README.md).
-
-Se a pasta de dicionários estiver vazia, o app volta ao comportamento padrão: baixa o dicionário quando houver internet.
 
 ## Como o app é montado
 
